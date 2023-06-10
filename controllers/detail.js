@@ -216,3 +216,5 @@ let renderProduct = (arr) => {
   }
   document.getElementById("idDetail").innerHTML = content;
 };
+
+  
