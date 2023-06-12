@@ -148,13 +148,7 @@ window.onload = () => {
                             <option value="" selected disabled>
                                 Pick a Size
                             </option>
-                            <option value="1">EU ${product.size[0]}</option>
-                            <option value="2">EU ${product.size[1]}</option>
-                            <option value="3">EU ${product.size[2]}</option>
-                            <option value="4">EU ${product.size[3]}</option>
-                            <option value="5">EU ${product.size[4]}</option>
-                            <option value="6">EU ${product.size[5]}</option>
-                            <option value="7">EU ${product.size[6]}</option>
+                           
                         </select>
                     </div>
     
@@ -186,6 +180,16 @@ window.onload = () => {
             </div>
             `;
     document.getElementById("idDetail").innerHTML = content;
+    var sizes = res.data.content.size;
+    var sizeHtml=""
+    // Product Size
+    sizes.forEach((size) => {
+      sizeHtml += `<option value="${size}">EU ${size}</option>`;
+    });
+
+    document.querySelector(
+      ".detail_product .product_size #size_options"
+    ).innerHTML += sizeHtml;
   });
   promise.catch(function (err) {
     console.log(err);
